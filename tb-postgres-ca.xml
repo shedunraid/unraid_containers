@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>tb-postgres-ca</Name>
+  <Repository>thingsboard/tb-postgres</Repository>
+  <Registry>https://hub.docker.com/r/thingsboard/tb-postgres/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://hub.docker.com/r/thingsboard/tb-postgres/</Support>
+  <Project>https://tbc.tbc.com</Project>
+  <Overview>Single instance of ThingsBoard with PostgreSQL database   Converted By Community Applications   Always verify this template (and values) against the dockerhub support page for the container</Overview>
+  <Category>Productivity: Other: Status:Beta</Category>
+  <WebUI>http://[IP]:[PORT:9090]</WebUI>
+  <TemplateURL/>
+  <Icon>https://avatars.githubusercontent.com/u/24291394?s=200&amp;amp;v=4</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1621369003</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Single instance of ThingsBoard with PostgreSQL database   Converted By Community Applications   Always verify this template (and values) against the dockerhub support page for the container</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>9090</HostPort>
+        <ContainerPort>9090</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>1883</HostPort>
+        <ContainerPort>1883</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>5683</HostPort>
+        <ContainerPort>5683</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/</HostDir>
+      <ContainerDir>/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/</HostDir>
+      <ContainerDir>/var/log/thingsboard</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>tbpostgres</Value>
+      <Name>--name</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>YES</Value>
+      <Name>-it</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>yes</Value>
+      <Name>--restart always</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>yes</Value>
+      <Name>thingsboard/tb-postgres</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="DATA FOLDER PATH" Target="/data" Default="" Mode="rw" Description="ThingsBoard DataBase data directory" Type="Path" Display="always" Required="false" Mask="false">/mnt/</Config>
+  <Config Name="LOG FOLDER PATH" Target="/var/log/thingsboard" Default="" Mode="rw" Description="ThingsBoard Logs data directory" Type="Path" Display="always" Required="false" Mask="false">/mnt/</Config>
+  <Config Name="HTTP " Target="9090" Default="9090" Mode="tcp" Description="HTTP ACCESS PORT" Type="Port" Display="always" Required="true" Mask="false">9090</Config>
+  <Config Name="MQTT PORT" Target="1883" Default="1883" Mode="tcp" Description="MQQT PORT" Type="Port" Display="always" Required="true" Mask="false">1883</Config>
+  <Config Name="COAP" Target="5683" Default="5683" Mode="tcp" Description="COAP PORT" Type="Port" Display="always" Required="true" Mask="false">5683</Config>
+  <Config Name="Thingsboard Server Name" Target="--name" Default="tbpostgres" Mode="" Description="friendly local name of this machine  must only be characters, no sumbols" Type="Variable" Display="always" Required="true" Mask="false">tbpostgres</Config>
+  <Config Name="Terminal Console" Target="-it" Default="YES" Mode="" Description="attach a terminal session with current ThingsBoard process output" Type="Variable" Display="advanced-hide" Required="true" Mask="false">YES</Config>
+  <Config Name="Restart always" Target="--restart always" Default="yes" Mode="" Description="Container Variable: --restart always" Type="Variable" Display="advanced-hide" Required="true" Mask="false">yes</Config>
+  <Config Name="Docker Image" Target="thingsboard/tb-postgres" Default="yes" Mode="" Description="Container Variable: thingsboard/tb-postgres" Type="Variable" Display="advanced-hide" Required="true" Mask="false">yes</Config>
+</Container>
